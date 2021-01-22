@@ -34,6 +34,7 @@ def get_answer_from_engine(bottype, query):
 
 @app.route('/query/<bot_type>', methods=['POST'])
 def query(bot_type):
+    print("왜안돼")
     body = request.get_json()
     print(bot_type)
 
