@@ -11,34 +11,37 @@ app = Flask(__name__)
 #챗봇 엔진 서버와 통신
 def get_answer_from_engine(bottype, query):
     #챗봇 엔진 서버 연결
-    mySocket = socket.socket()
-    mySocket.connect((host,port))
+    myApiSocket = socket.socket()
+    myApiSocket.connect((host,port))
 
     #챗봇 엔진 질의 요청
     json_data = {
         'Query' : query,
-        'BotType' : bottype
+        'BotType' : "MyService"
     }
     message = json.dumps(json_data)
-    mySocket.send(message.encode())
+    myApiSocket.send(message.encode())
 
     #챗봇 엔진 답변 출력
-    data = mySocket.recv(2048).decode()
+    data = myApiSocket.recv(2048).decode()
     ret_data = json.loads(data)
 
     print("socket 확인")
     #챗봇 엔진 서버 연결 소켓 닫기
-    mySocket.close()
+    myApiSocket.close()
 
     return ret_data
 
 @app.route('/query/<bot_type>', methods=['POST'])
 def query(bot_type):
     body = request.get_json()
+    print(bot_type)
 
     try:
         if bot_type == 'TEST':
             #챗봇 API 테스트
+            print("여긴")
+            print(body['query'])
             ret = get_answer_from_engine(bottype=bot_type, query=body['query'])
             return jsonify(ret)
         
@@ -53,4 +56,5 @@ def query(bot_type):
             abort(404)
 
     except Exception as ex:
+        print(ex)
         abort(500)
