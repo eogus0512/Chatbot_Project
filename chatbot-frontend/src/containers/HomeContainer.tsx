@@ -13,10 +13,22 @@ class HomeContainer extends Component<{}, any> {
 
 
 	postChatbot = (message: any) => {
+		const config = {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        };
 		axios.post(
-			`http://127.0.0.1:5000/query/TEST`,{
-			data : { query : message }},
-		);
+			`http://127.0.0.1:5000/query/TEST`,
+			{ message },
+			config
+		).then(response => {
+			console.log(response);
+			let messages = this.state.messages;
+			this.setState({
+				messages : [...messages, {"chat" : response.data['Answer']}],
+			})
+		}) .catch(error => {
+            console.log(error);
+        })	
 	}
 
 	handleMessages = (text : string) => {
@@ -42,7 +54,6 @@ class HomeContainer extends Component<{}, any> {
 		this.setState({
 			[e.target.id]: e.target.value,
 		});
-		console.log(`e.target.id`, e.target.value);
 	};
 	/*
 	componentDidMount(){
@@ -69,9 +80,9 @@ class HomeContainer extends Component<{}, any> {
 				<Box style={{ ...flexColumn, justifyContent: 'flex-start', minHeight: '85vh', width: '100%' }}>
 					{messages.map((value : any) =>{
 						return(
-							<Box style={{...flexRow, justifyContent: "flex-end"}}>
+							<Box style={value.isChat ? {...flexRow, justifyContent: "flex-end"} : {...flexRow, justifyContent: "flex-start"}}>
 							<Box style={{position: "relative", display: "inline-block"}}>
-							<div style={value.isChat ? {...messageOutsideBox} : {...messageOutsideBox}}>
+							<div style={{...messageOutsideBox}}>
 								{value.chat}
 							</div>
 							</Box>

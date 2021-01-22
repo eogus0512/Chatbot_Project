@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, abort
 import socket
 import json
+from flask_cors import CORS, cross_origin
 
 #챗봇 엔진 서버 접속 정보
 host = "127.0.0.1"
@@ -32,7 +33,8 @@ def get_answer_from_engine(bottype, query):
 
     return ret_data
 
-@app.route('/query/<bot_type>', methods=['POST'])
+@app.route('/query/<bot_type>', methods=['GET','POST'])
+@cross_origin(origin='*',headers=['Content-Type'])
 def query(bot_type):
     print("왜안돼")
     body = request.get_json()
@@ -42,8 +44,8 @@ def query(bot_type):
         if bot_type == 'TEST':
             #챗봇 API 테스트
             print("여긴")
-            print(body['query'])
-            ret = get_answer_from_engine(bottype=bot_type, query=body['query'])
+            print(body['message'])
+            ret = get_answer_from_engine(bottype=bot_type, query=body['message'])
             return jsonify(ret)
         
         elif bot_type == "KAKAO":
@@ -59,3 +61,6 @@ def query(bot_type):
     except Exception as ex:
         print(ex)
         abort(500)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
