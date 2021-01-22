@@ -4,14 +4,13 @@ from models.intent.IntentModel import IntentModel
 from models.ner.NerModel import NerModel
 from utils.FindAnswer import FindAnswer
 from tkinter import *
-
 # 전처리 객체 생성
 p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict.bin',
                userdic='utils/user_dic.tsv')
 
 # 질문/답변 학습 디비 연결 객체 생성
 db = Database(
-    host="localhost", user="root", password="tjwjdeogus369!", db_name="food"
+    host="localhost", user="root", password="0000", db_name="food"
 )
 db.connect()    # 디비 연결
 

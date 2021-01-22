@@ -5,7 +5,7 @@ try:
     db = pymysql.connect(
         host="localhost",
         user="root",
-        passwd="tjwjdeogus369!",
+        passwd="0000",
         db="food",
         charset='utf8'
     )

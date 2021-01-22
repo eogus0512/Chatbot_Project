@@ -39,13 +39,13 @@ def insert_data(db, xls_row):
         db.commit()
 
 
-train_file = './train_data.xlsx'
+train_file = 'C:/Users/ghk78/WORKSPACE/github/Chatbot_API/Chatbot_Project/train_tools/qna/train_data.xlsx'
 db = None
 try:
     db = pymysql.connect(
         host="localhost",
         user="root",
-        passwd="tjwjdeogus369!",
+        passwd="0000",
         db="food",
         charset='utf8'
     )

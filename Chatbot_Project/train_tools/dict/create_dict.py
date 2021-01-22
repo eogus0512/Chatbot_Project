@@ -5,6 +5,7 @@ from utils.Preprocess import Preprocess
 from tensorflow.keras import preprocessing
 import pickle
 
+
 # 말뭉치 데이터 읽어오기
 def read_corpus_data(filename):
     with open(filename, 'r', encoding='utf-8') as f:
