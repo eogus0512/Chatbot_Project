@@ -20,7 +20,6 @@ def get_answer_from_engine(bottype, query):
         'Query': query,
         'BotType': "MyService"
     }
-    print(json_data)
     message = json.dumps(json_data)
     myApiSocket.send(message.encode())
 
@@ -31,21 +30,15 @@ def get_answer_from_engine(bottype, query):
     print("socket 확인")
     #챗봇 엔진 서버 연결 소켓 닫기
     myApiSocket.close()
-    print(ret_data)
     return ret_data
 
 @app.route('/query/<bot_type>', methods=['GET','POST'])
 @cross_origin(origin='*',headers=['Content-Type'])
 def query(bot_type):
-    print("왜안돼")
     body = request.get_json()
-    print(bot_type)
 
     try:
         if bot_type == 'TEST':
-            #챗봇 API 테스트
-            print("여긴")
-            print(body['query'])
             ret = get_answer_from_engine(bottype=bot_type, query=body['query'])
             return jsonify(ret)
 

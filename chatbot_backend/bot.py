@@ -52,7 +52,7 @@ def to_client(conn, addr, params):
                 answer = f.tag_to_word(predicts, answer_text)
         
         except:
-            answer = "죄송해요 무슨 말인지 모르겠어요, 조금 더 공부할게요."
+            answer = "죄송해요… 무슨 말씀이신지 모르겠어요…!!"
             answer_image = None
 
         send_json_data_str = {
