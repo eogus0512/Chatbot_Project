@@ -1,7 +1,6 @@
 import threading
 import json
 
-from config import *
 from utils.Database import Database
 from utils.BotServer import BotServer
 from utils.Preprocess import Preprocess
@@ -12,12 +11,6 @@ from utils.FindAnswer import FindAnswer
 #전처리 객체 생성
 p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict.bin',
                 userdic='utils/user_dic.tsv')
-
-#의도 파악 모델
-intent = IntentModel(model_name='models/intent/intent_model.h5',proprocess=p)
-
-#개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', proprocess=p)
 
 def to_client(conn, addr, params):
     db = params['db']
@@ -83,7 +76,7 @@ def to_client(conn, addr, params):
 if __name__ == '__main__':
     # 질문/ 답변 학습 db 연결 객체 생성
     db = Database(
-        host="localhost", user="root", password="0000", db_name="food"
+        host="localhost", user="root", password="tjwjdeogus369!", db_name="food"
     )
 
     print("DB 접속")

@@ -23,7 +23,6 @@ class FindAnswer:
 
         # 동일한 답변이 2개 이상인 경우, 랜덤으로 선택
         sql = sql + " order by rand() limit 1"
-        print(sql)
         return sql
 
     # 답변 검색

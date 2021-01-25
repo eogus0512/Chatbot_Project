@@ -13,13 +13,14 @@ app = Flask(__name__)
 def get_answer_from_engine(bottype, query):
     #챗봇 엔진 서버 연결
     myApiSocket = socket.socket()
-    myApiSocket.connect((host,port))
+    myApiSocket.connect((host, port))
 
     #챗봇 엔진 질의 요청
     json_data = {
-        'Query' : query,
-        'BotType' : "MyService"
+        'Query': query,
+        'BotType': "MyService"
     }
+    print(json_data)
     message = json.dumps(json_data)
     myApiSocket.send(message.encode())
 
@@ -30,7 +31,7 @@ def get_answer_from_engine(bottype, query):
     print("socket 확인")
     #챗봇 엔진 서버 연결 소켓 닫기
     myApiSocket.close()
-
+    print(ret_data)
     return ret_data
 
 @app.route('/query/<bot_type>', methods=['GET','POST'])
@@ -44,15 +45,9 @@ def query(bot_type):
         if bot_type == 'TEST':
             #챗봇 API 테스트
             print("여긴")
-            print(body['message'])
-            ret = get_answer_from_engine(bottype=bot_type, query=body['message'])
+            print(body['query'])
+            ret = get_answer_from_engine(bottype=bot_type, query=body['query'])
             return jsonify(ret)
-        
-        elif bot_type == "KAKAO":
-            pass#안씀
-
-        elif bot_type == "NAVER":
-            pass#안씀
 
         else:
             # 정의되지 않은 bot type 인 경우 404 오류
