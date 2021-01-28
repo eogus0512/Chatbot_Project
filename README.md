@@ -1,10 +1,10 @@
 # Chatbot
 ## 동국대학교 주변 맛집 추천 챗봇
 
-frontend : react, javascript  
-api : flask (python)  
-chatbot : tensorflow   (있는거 뭐잇냐)   
-version : python 3.7.8??
+frontend - react, javascript  
+api - flask (python)  
+chatbot - tensorflow   (있는거 뭐잇냐)   
+version - python 3.7.8??
 
 --> requirement.txt 에 정리하기
 
