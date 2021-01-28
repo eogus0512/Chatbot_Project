@@ -5,17 +5,19 @@ frontend : react, javascript
 api : flask (python)  
 chatbot : tensorflow   (있는거 뭐잇냐)
 
-### frontend (react) 실행
 
-1. yarn install
-2. yarn start
+## How to run
 
-### chatbot 실행
-
-1. `conda activate chatbot `  
-2. `python bot.py`  
-3. chatbot_api 폴더로 이동  
-4. `flask run`  
-
-
+### 1. frontend (react) 실행
+```
+$ yarn install     
+$ yarn start
+```
+### 2. chatbot 실행
+```
+$ conda activate chatbot  
+$ python bot.py`  
+$ cd ../../chatbot_api  
+$ flask run 
+```
 
