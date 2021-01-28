@@ -3,7 +3,7 @@
 
 frontend : react, javascript  
 api : flask (python)  
-chatbot : tensorflow   (있는거 뭐잇냐)
+chatbot : tensorflow   (있는거 뭐잇냐)   
 version : python 3.7.8??
 
 --> requirement.txt 에 정리하기
