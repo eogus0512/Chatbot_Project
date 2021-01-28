@@ -32,3 +32,4 @@ chatbot.html 실행
 ```
 
 ## View Project
+ ![View](./view/chatbot_play.gif)
