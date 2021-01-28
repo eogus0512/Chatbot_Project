@@ -1,7 +1,7 @@
 # Chatbot
-- 동국대학교 주변 맛집 추천 챗벗
+- 동국대학교 주변 맛집 추천 챗봇
 
-## environment
+## nvironment
 
 frontend - react, javascript  
 api - flask (python)  
