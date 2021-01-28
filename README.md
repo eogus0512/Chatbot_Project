@@ -4,7 +4,9 @@
 frontend : react, javascript  
 api : flask (python)  
 chatbot : tensorflow   (있는거 뭐잇냐)
+version : python 3.7.8??
 
+--> requirement.txt 에 정리하기
 
 ## How to run
 
@@ -16,7 +18,10 @@ $ yarn start
 ### 2. chatbot 실행
 ```
 $ conda activate chatbot  
-$ python bot.py`  
+$ python bot.py  
+```
+### 3. api 실행
+```
 $ cd ../../chatbot_api  
 $ flask run 
 ```
