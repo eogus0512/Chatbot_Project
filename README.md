@@ -2,14 +2,11 @@
 API를 사용하여 클라이언트와 서버가 데이터를 주고받을 수 있도록 하여 웹에서 동국대 주변 맛집 추천 딥러닝 챗봇 프로그램을 구현 
 
 ## Environment
-
 frontend - React, Javascript, HTML, CSS
 
 API - Flask (python)
 
 chatbot - keras (python(tensorflow))
-
---> requirement.txt 에 정리하기
 
 ## How to run
 
@@ -18,9 +15,9 @@ chatbot - keras (python(tensorflow))
 $ conda activate chatbot  
 $ python bot.py  
 ```
-### 2. api 실행
+### 2. API 실행
 ```
-$ cd ../../chatbot_api  
+$ cd ../../api  
 $ flask run 
 ```
 ### 3. frontend 실행
